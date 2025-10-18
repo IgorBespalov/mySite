@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style_form.css">
+    <title>Форма заказа Smart Business Solutions</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="form">
+            <form action="#" id="form" class="form__body">
+                <h1 class="form__title">Форма заказа</h1>
+                <div class="order_title">
+                    <h1 class="order__title" id="formMessage" name="message" ></h1>
+                </div>
+                <div class="form__item">
+                    <!-- создаем поле для ввода имени через label. Его нужно привязать к переменной в разделе for -->
+                    <label for="formName" class="form__label">Имя*:</label>
+                    <!-- здесь класс _req, который мы проверяем в JS -->
+                    <input type="text" id="forName" name="name" class="form__input _req" placeholder="Как к Вам обращаться?">
+                </div>
+                <div class="form__item">
+                    <label for="formEmail" class="form__label">E-mail*:</label>
+                    <!-- здесь классы _req и _email, которые мы проверяем в JS -->
+                    <input type="text" id="forEmail" name="email" class="form__input _req _email" placeholder="Введите Ваш e-mail">
+                </div>
+                <div class="form__item">
+                    <div class="form__label">Каким способом вам удобно оформить заказ?</div>
+                    <div class="options">
+                        <div class="options__item">
+                            <input id="formFysical" checked type="radio" value="fysical" name="payment" class="options__input">
+                            <label for="formFysical" class="options__label"><span>Частное лицо</span></label>
+                        </div>
+                        <div class="options__item">
+                            <input id="formOrganisation" type="radio" value="organisation" name="payment" class="options__input">
+                            <label for="formOrganisation" class="options__label"><span>Организация</span></label>
+                        </div>
+                    </div>
+                </div>
+                <!-- поле для ввода сообщения к заказу -->
+                <div class="form__item">
+                    <label for="formMessage" class="form__label">Информация к заказу (вопросы, комментарии):</label>
+                    <textarea name="message2" id="addMessage" class="form__input" placeholder="Заполните по желанию"></textarea>
+                </div>
+                <div class="form__item hidden__form">
+                    <label for="formMessage" class="form__label">Название продукта:</label>
+                    <textarea name="message" id="formMessage2" class="form__input" placeholder="Заполните по желанию"></textarea>
+                </div>
+
+                <!-- СОГЛАСИЕ НА ОБРАБОТКУ ПЕРСОНАЛЬНЫХ ДАННЫХ -->
+                <div class="form__item">
+                    <div class="checkbox">
+                        <input id="formAgreement" checked type="checkbox" name="agreement" class="checkbox__input _req">
+                        <!-- здесь класс _req, который мы проверяем в JS -->
+                        <label for="formAgreement" class="checkbox__label"><span>Даю согласие на обработку персональных данных в соответствии с <a href="#">Условиями</a>*</span></label>
+                    </div>
+                </div>
+                <button type="submit" class="form__button">Отправить заявку</button>
+                <div class="email-message">
+                    Если Вам <span>не удается отправить заявку</span> через данную форму, продублируйте Ваш запрос на e-mail: <a href="mailto:consultant@sbsc.ru">consultant@sbsc.ru</a> <br><br> <span style="color: darkred;">Иногда наши письма могут попадать в папку СПАМ. Проверьте её.</span>
+                    <br>
+                    
+                   <a href="../index.html"><img src="../img/logo.svg" alt="логотип Smart Business Solutions" title="Вернуться на главную страницу сайта" style="width: 48px; height: 48px; margin-top: 15px;"></a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        const order = localStorage.getItem('order_text');
+        let order_info = document.getElementById('formMessage');
+        let order_info2 = document.getElementById('formMessage2');
+
+        if (order_info == null) {
+            order_info.innerHTML;
+        } else {
+            order_info.innerHTML = order;
+        }
+
+        if (order_info2 == null) {
+                order_info2.innerHTML;
+            } else {
+                order_info2.innerHTML = order;
+            }
+
+        
+    </script>
+    <script src="js/script.js"></script>
+    
+</body>
+</html>
